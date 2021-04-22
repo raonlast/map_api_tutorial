@@ -15,7 +15,7 @@
       crossorigin="anonymous">
     </script>
     <script type="text/javascript" 
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=545b39563de05b268cf66d0a51b18dad&libraries=services">
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=52973e6266e47ad1d9de8aedd04f57bd&libraries=services">
     </script>
   </head>
 
@@ -39,7 +39,7 @@
 
       var map = new naver.maps.Map('map', mapOptions);
 
-      var infoWindow = new naver.maps.InfoWindow({zIndex: 1});
+      let infoWindow = new naver.maps.InfoWindow({zIndex: 1});
       
       var markerList = [];
       var infowindowList = [];
@@ -179,6 +179,7 @@
 
       $("#search_button").on("click", function(event) {
         let content = $("#search_input").val();
+        console.log('click event');
         ps.keywordSearch(content, placeSearchCB);
       })
 
@@ -226,8 +227,8 @@
         search_arr.push(marker);
 
         naver.maps.Event.addListener(marker, "click", () => {
-          infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-          infowindow.open(map, marker);
+          infoWindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+          infoWindow.open(map, marker);
         });
       }
 
@@ -285,10 +286,10 @@
       //     center: position,
       //     zoom: 19
       // });
-      var overlay = new CustomOverlay({
-          map: map,
-          position: position
-      });
+      // var overlay = new CustomOverlay({
+      //     map: map,
+      //     position: position
+      // });
 
 
 
